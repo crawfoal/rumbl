@@ -1,3 +1,16 @@
 /* This file is for your main application css. */
 
 @import "./phoenix.css";
+
+#menu-bar h1 {
+  display: inline;
+}
+
+#menu-bar img {
+  display: inline;
+  height: 3.6rem;
+}
+
+.phx-logo {
+  color: #444444;
+}
