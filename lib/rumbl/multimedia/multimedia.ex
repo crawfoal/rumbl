@@ -8,6 +8,27 @@ defmodule Rumbl.Multimedia do
 
   alias Rumbl.Multimedia.Video
   alias Rumbl.Accounts.User
+  alias Rumbl.Multimedia.Category
+
+  @doc """
+  Finds or creates a category with the given name. Only intended to be used
+  manually and in building database seeds, so it doesn't use changesets.
+
+  ## Examples
+
+      iex > create_category("Comedy")
+      %Category{name: "Comedy"}
+
+  """
+  def create_category(name) do
+    Repo.get_by(Category, name: name) || Repo.insert!(%Category{name: name})
+  end
+
+  def list_alphabetical_categories do
+    Category
+    |> Category.alphabetical()
+    |> Repo.all()
+  end
 
   @doc """
   Returns the list of videos.
